@@ -17,7 +17,9 @@ public class SHAEncry {
 
 		try {
 			md = MessageDigest.getInstance("SHA-1");
-			byte[] digest = md.digest(source.getBytes());
+			//md = MessageDigest.getInstance("MD5");
+			md.update(source.getBytes("utf-8"));
+			byte[] digest = md.digest();
 			tmpStr = byteToStr(digest);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
